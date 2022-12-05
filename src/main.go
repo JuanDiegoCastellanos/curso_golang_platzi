@@ -44,4 +44,37 @@ func main() {
 	fmt.Printf("tipo de dato message %T \n", message)
 	fmt.Printf("cursos: %T \n", amountCursos)
 
+	//llamando una funcion
+	normalFunction("Hellooooooo !")
+	tripleArgumento(1, 2, "juan")
+
+	fmt.Println(returnValue(8, 9))
+
+	// recibir dobles retornos
+
+	value1, value2 := dobleReturn(4)
+	fmt.Println("value1 y value2", value1, value2)
+
+	// tomar solo un retorno
+	value3, _ := dobleReturn(55)
+	fmt.Printf("%v \n", value3)
+}
+
+// Funciones
+func normalFunction(message string) {
+	fmt.Println(message)
+}
+
+func tripleArgumento(a, b int, c string) {
+	fmt.Println(a, b, c)
+}
+
+func returnValue(a, b int) int {
+	return a * b
+}
+
+// doble retorno
+
+func dobleReturn(a int) (c, d int) {
+	return a, a * 2
 }
