@@ -57,4 +57,23 @@ func main() {
 
 	fmt.Println("Value: ", value)
 
+	modulo := 5 % 2
+
+	switch modulo {
+	case 0:
+		fmt.Println("Es par")
+	default:
+		fmt.Println("Es impar")
+	}
+
+	valueS := 200
+	switch {
+	case valueS > 100:
+		fmt.Println("Es mayor a 100")
+	case valueS < 0:
+		fmt.Println("Es menor a 0")
+	default:
+		fmt.Println("No condition")
+	}
+
 }
