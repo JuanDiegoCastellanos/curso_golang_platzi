@@ -22,11 +22,11 @@ func main() {
 	}
 
 	//for forever
-	counterForerever := 0
-	for {
-		fmt.Println(counterForerever)
-		counterForerever++
-	}
+	// counterForerever := 0
+	// for {
+	// 	fmt.Println(counterForerever)
+	// 	counterForerever++
+	// }
 
 	// condicionales
 	valor1 := 1
@@ -75,5 +75,40 @@ func main() {
 	default:
 		fmt.Println("No condition")
 	}
+
+	// defer la linea que contiene defer se ejecuta de ultimas
+	fmt.Println("Mundo")
+	defer fmt.Println("Hola")
+
+	//Arrays
+
+	var miArreglo [10]int
+
+	miArreglo[0] = 10
+	miArreglo[1] = 20
+	fmt.Println(miArreglo)
+
+	// len --> cuantos elementos hay en el arreglo
+	// cap --> capacidad maxima del arreglo
+
+	//Slices
+	slice := []int{0, 2, 3, 4, 2, 1, 2, 4}
+	fmt.Println(slice, len(slice), cap(slice))
+
+	// Metodos
+	fmt.Println(slice[0])
+	fmt.Println(slice[:3])
+	fmt.Println(slice[2:4])
+	fmt.Println(slice[4:])
+
+	// Append -- agregar elemento
+	slice = append(slice, 7)
+	fmt.Println(slice)
+
+	// Append -- agregar lista
+	newSlice := []int{10, 12, 13, 14, 15}
+
+	slice = append(slice, newSlice...)
+	fmt.Println(slice)
 
 }
