@@ -2,113 +2,161 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"strconv"
 )
+
+type Person struct {
+	name string
+	doc  string
+	id   int
+}
+
+// Ejercicio palindromo
+func isPalindromo(texto string) {
+	var textReverse string
+
+	for i := len(texto) - 1; i >= 0; i-- {
+		textReverse += string(texto[i])
+	}
+
+	if texto == textReverse {
+		fmt.Println("Es palindromo")
+	} else {
+		fmt.Println("No es palindromo")
+	}
+}
 
 func main() {
 
-	// for condicional
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
-	}
-	fmt.Println("----------------")
+	// // for condicional
+	// for i := 0; i < 10; i++ {
+	// 	fmt.Println(i)
+	// }
+	// fmt.Println("----------------")
 
-	// for while
-	counter := 0
-	for counter < 10 {
-		fmt.Println(counter)
-		counter += 1
-	}
-
-	//for forever
-	// counterForerever := 0
-	// for {
-	// 	fmt.Println(counterForerever)
-	// 	counterForerever++
+	// // for while
+	// counter := 0
+	// for counter < 10 {
+	// 	fmt.Println(counter)
+	// 	counter += 1
 	// }
 
-	// condicionales
-	valor1 := 1
-	valor2 := 2
+	// //for forever
+	// // counterForerever := 0
+	// // for {
+	// // 	fmt.Println(counterForerever)
+	// // 	counterForerever++
+	// // }
 
-	if valor1 == 1 {
-		fmt.Println("Es 1")
-	} else {
-		fmt.Println("No es 1")
-	}
+	// // condicionales
+	// valor1 := 1
+	// valor2 := 2
 
-	// With and
-	if valor1 == 1 && valor2 == 2 {
-		fmt.Println("Es verdad")
-	}
+	// if valor1 == 1 {
+	// 	fmt.Println("Es 1")
+	// } else {
+	// 	fmt.Println("No es 1")
+	// }
 
-	// With or
-	if valor1 == 0 || valor2 == 2 {
-		fmt.Println("Es verdad, OR")
-	}
+	// // With and
+	// if valor1 == 1 && valor2 == 2 {
+	// 	fmt.Println("Es verdad")
+	// }
 
-	// Convertir texto a numero
-	value, err := strconv.Atoi("53")
+	// // With or
+	// if valor1 == 0 || valor2 == 2 {
+	// 	fmt.Println("Es verdad, OR")
+	// }
 
-	if err != nil {
-		log.Fatal(err)
-	}
+	// // Convertir texto a numero
+	// value, err := strconv.Atoi("53")
 
-	fmt.Println("Value: ", value)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
-	modulo := 5 % 2
+	// fmt.Println("Value: ", value)
 
-	switch modulo {
-	case 0:
-		fmt.Println("Es par")
-	default:
-		fmt.Println("Es impar")
-	}
+	// modulo := 5 % 2
 
-	valueS := 200
-	switch {
-	case valueS > 100:
-		fmt.Println("Es mayor a 100")
-	case valueS < 0:
-		fmt.Println("Es menor a 0")
-	default:
-		fmt.Println("No condition")
-	}
+	// switch modulo {
+	// case 0:
+	// 	fmt.Println("Es par")
+	// default:
+	// 	fmt.Println("Es impar")
+	// }
 
-	// defer la linea que contiene defer se ejecuta de ultimas
-	fmt.Println("Mundo")
-	defer fmt.Println("Hola")
+	// valueS := 200
+	// switch {
+	// case valueS > 100:
+	// 	fmt.Println("Es mayor a 100")
+	// case valueS < 0:
+	// 	fmt.Println("Es menor a 0")
+	// default:
+	// 	fmt.Println("No condition")
+	// }
 
-	//Arrays
+	// // defer la linea que contiene defer se ejecuta de ultimas
+	// fmt.Println("Mundo")
+	// defer fmt.Println("Hola")
 
-	var miArreglo [10]int
+	// //Arrays
 
-	miArreglo[0] = 10
-	miArreglo[1] = 20
-	fmt.Println(miArreglo)
+	// var miArreglo [10]int
 
-	// len --> cuantos elementos hay en el arreglo
-	// cap --> capacidad maxima del arreglo
+	// miArreglo[0] = 10
+	// miArreglo[1] = 20
+	// fmt.Println(miArreglo)
 
-	//Slices
-	slice := []int{0, 2, 3, 4, 2, 1, 2, 4}
-	fmt.Println(slice, len(slice), cap(slice))
+	// // len --> cuantos elementos hay en el arreglo
+	// // cap --> capacidad maxima del arreglo
 
-	// Metodos
-	fmt.Println(slice[0])
-	fmt.Println(slice[:3])
-	fmt.Println(slice[2:4])
-	fmt.Println(slice[4:])
+	// //Slices
+	// slice := []int{0, 2, 3, 4, 2, 1, 2, 4}
+	// fmt.Println(slice, len(slice), cap(slice))
 
-	// Append -- agregar elemento
-	slice = append(slice, 7)
-	fmt.Println(slice)
+	// // Metodos
+	// fmt.Println(slice[0])
+	// fmt.Println(slice[:3])
+	// fmt.Println(slice[2:4])
+	// fmt.Println(slice[4:])
 
-	// Append -- agregar lista
-	newSlice := []int{10, 12, 13, 14, 15}
+	// // Append -- agregar elemento
+	// slice = append(slice, 7)
+	// fmt.Println(slice)
 
-	slice = append(slice, newSlice...)
-	fmt.Println(slice)
+	// // Append -- agregar lista
+	// newSlice := []int{10, 12, 13, 14, 15}
+
+	// slice = append(slice, newSlice...)
+	// fmt.Println(slice)
+
+	// // Recorriendo arrays
+	// sliceCadena := []string{"Hello", "What", "are", "you", "doing"}
+
+	// for i, valor := range sliceCadena {
+	// 	fmt.Println(i, valor)
+	// }
+	// // isPalindromo("amor y roma")
+	// isPalindromo("hpta")
+
+	// // diccionarios - mapas
+
+	// m := make(map[string]int)
+
+	// m["Juan"] = 22
+	// m["Pepe"] = 13
+
+	// fmt.Println(m)
+
+	// // Recorrer
+	// for i, value := range m {
+	// 	fmt.Println(i, value)
+	// }
+
+	// // Encontrar valor
+	// fmt.Println(m["Juan"])
+
+	// valor, ok := m["Juans"]
+	// fmt.Println(valor, ok)
 
 }
