@@ -27,6 +27,15 @@ func isPalindromo(texto string) {
 
 func main() {
 
+	juan := Person{name: "Juan", doc: "99302002", id: 12}
+
+	fmt.Println(juan.name)
+
+	var manuel Person
+	manuel.doc = "kdkdkdkdk"
+
+	fmt.Println(manuel.doc)
+
 	// // for condicional
 	// for i := 0; i < 10; i++ {
 	// 	fmt.Println(i)
