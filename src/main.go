@@ -82,4 +82,8 @@ func main() {
 
 	calcular(myCuadrado)
 	calcular(myRectangulo)
+
+	// Lista de interfaces
+	myInterface := []interface{}{"Hola", 23, 44.32}
+	fmt.Println(myInterface...)
 }
