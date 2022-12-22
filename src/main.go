@@ -22,6 +22,30 @@ func (myPC pc) String() string {
 	return fmt.Sprintf("Tengo %d GB RAM, %d GB Disco y es una %s", myPC.ram, myPC.disk, myPC.brand)
 }
 
+// INTERFAZ
+type figuras2D interface {
+	area() float64
+}
+
+func calcular(f figuras2D) {
+	fmt.Println("Area:", f.area())
+}
+
+type cuadrado struct {
+	base float64
+}
+type rectangulo struct {
+	base   float64
+	altura float64
+}
+
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
 func main() {
 
 	fmt.Println("Modificadores de acceso")
@@ -51,4 +75,11 @@ func main() {
 
 	// Stringers
 	fmt.Println(myPC)
+
+	//INTERFACES
+	myCuadrado := cuadrado{base: 2}
+	myRectangulo := rectangulo{base: 2, altura: 4}
+
+	calcular(myCuadrado)
+	calcular(myRectangulo)
 }
