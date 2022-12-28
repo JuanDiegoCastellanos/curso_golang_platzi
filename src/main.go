@@ -1,41 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
 
-func message(txt string, c chan string) {
-	c <- txt
-}
+	"github.com/labstack/echo"
+)
 
 func main() {
 
-	c := make(chan string, 2)
+	// manejador de paquetes
+	// go get
+	// go modules
+	// echo framework
 
-	c <- "Juan"
-	c <- "Castellanos"
+	fmt.Println("Instalar libreria")
+	fmt.Println("go install -v github.com/labstack/echo@latest")
+	fmt.Println("Inicializar module")
+	fmt.Println("go mod init github.com/JuanDiegoCastellanos")
 
-	fmt.Println(len(c), cap(c))
+	// Instanciar echo
+	e := echo.New()
 
-	// close -- cerrar channel
-	close(c)
+	//Ruta
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello world")
+	})
 
-	for msg := range c {
-		fmt.Println(msg)
-	}
-
-	// Select
-	emailOne := make(chan string)
-	emailTwo := make(chan string)
-
-	go message("mensaje1", emailOne)
-	go message("mensaje2", emailTwo)
-
-	for i := 0; i < 2; i++ {
-		select {
-		case m1 := <-emailOne:
-			fmt.Println("Email recibido de email 1 ", m1)
-		case m2 := <-emailTwo:
-			fmt.Println("Email recibido de email 2 ", m2)
-		}
-	}
+	e.Logger.Fatal(e.Start(":1323"))
 
 }
